@@ -1,0 +1,94 @@
+---
+  - hosts:
+      #- all
+      - tag_Environment_kafka
+    become: yes
+    tasks:
+      - name: ansible create working directory
+        file:
+          path: "{{ item }}"
+          state: directory
+          mode: '0755'
+        with_items: '{{ createfolder }}'
+
+      - name: Install needed software
+        yum:
+          name: "{{ item }}"
+          state: present
+        with_items: '{{ neededapps }}'
+
+      - name: Download kafka zipped file
+        get_url:
+          url: "{{ kafkafolder }}"
+          dest: "{{ projectfolder }}"
+          mode: '0440'
+
+      - name: Unzip kafka file
+        ansible.builtin.unarchive:
+          src: "{{ unzipkafka }}"
+          dest:  "{{ projectfolder }}"
+          remote_src: yes
+
+      - name: Write welcome message profile.d file
+        ansible.builtin.template:
+          src: welcome_message.j2
+          dest: /etc/profile.d/welcome_message.sh
+          owner: root
+          group: root
+          mode: '0644'
+
+  
+
+  - hosts:
+    #  - broker
+      - tag_Name_kafka_broker_node
+    become: yes
+    tasks:
+      - name: Write producer code to producer node
+        ansible.builtin.template:
+          src: producer_message.j2
+          dest: /home/ec2-user/project/pythoncode/producer_message.py
+          owner: ec2-user
+          group: ec2-user
+          mode: '0644'
+
+      - name: Write consumer code to consumer node
+        ansible.builtin.template:
+          src: consumer_message.j2
+          dest: /home/ec2-user/project/pythoncode/consumer_message.py
+          owner: ec2-user
+          group: ec2-user
+          mode: '0644'
+
+      - name: Install kafka python package on kafka broker node
+        pip:
+          name: kafka-python
+
+      - name: Ensure the kafka memory settings are exactly as needed
+        ansible.builtin.lineinfile:
+          path: /home/ec2-user/project/kafka_2.13-2.8.0/bin/kafka-server-start.sh
+          regexp: 'export KAFKA_HEAP_OPTS="-Xmx1G -Xms1G"'
+          line: 'export KAFKA_HEAP_OPTS="-Xmx512M -Xms512M"'
+          backrefs: yes
+
+      - name: Ensure the kafka memory settings are exactly as needed
+        ansible.builtin.lineinfile:
+          path: /home/ec2-user/project/kafka_2.13-2.8.0/config/server.properties
+          regexp: 'zookeeper.connect=localhost:2181'
+          line: 'zookeeper.connect=54.209.138.207:2181'
+          backrefs: yes
+
+#      - name: change working directory to kafka folder then start zookeeper engine
+#        ansible.builtin.shell:
+#          cmd: bin/kafka-server-start.sh config/kafka.properties
+#          chdir: /home/ec2-user/project/kafka_2.13-2.8.0/
+
+#- hosts:
+  #    - zookeeper
+  #  become: yes
+  #  tasks:
+  #    - name: change working directory to kafka folder then start zookeeper engine
+  #      ansible.builtin.shell:
+  #        cmd: bin/zookeeper-server-start.sh config/zookeeper.properties
+  #        chdir: /home/ec2-user/project/kafka_2.13-2.8.0/
+
