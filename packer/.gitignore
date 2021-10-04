@@ -1,0 +1,4 @@
+.terraform*
+terraform*
+public_key
+secret_key
