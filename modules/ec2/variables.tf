@@ -14,7 +14,7 @@ variable key_name {}
 variable user_data {}
 variable server_name {
     type = list
-    default = ["tool","broker","zookeeper"]
+    default = ["tool_kafka","broker_kafka","zookeeper_kafka"]
 }
 variable name {}
 variable role {}
@@ -23,12 +23,21 @@ variable environment {}
 # SECURITY_GROUP VARIABLES
 variable from_port {}
 variable to_port {}
+
 variable from_port2 {
     default = []
 }
 variable to_port2 {
     default = []
 }
+
+variable from_port3 {
+    default = []
+}
+variable to_port3 {
+    default = []
+}
+
 variable protocol {}
 
 # SUBNET VARIABLES

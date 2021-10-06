@@ -12,7 +12,7 @@ variable "secret_key" {
 
 variable "region" {
   type      = string
-  default   = "us-west-2"
+  default   = "us-east-1"
   sensitive = true
 }
 
@@ -25,7 +25,7 @@ source "amazon-ebs" "agents_server_ami" {
   ssh_username  = "ec2-user"
   region        = "${var.region}"
   ami_name      = "agents_server_ami"
-  source_ami    = "ami-0c2d06d50ce30b442"
+  source_ami    = "ami-087c17d1fe0178315"
   instance_type = "t2.micro"
 }
 

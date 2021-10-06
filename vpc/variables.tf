@@ -1,6 +1,6 @@
 
  variable "vpc_region" {
-     default = "us-west-2"
+     default = "us-east-1"
  }
 variable "vpc_cidr_block" {
     default = "50.0.0.0/16"

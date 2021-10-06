@@ -4,5 +4,5 @@ variable subnet_marker_values {
 }
 
 variable vpc_region {
-    default = "us-west-2"
+    default = "us-east-1"
 }

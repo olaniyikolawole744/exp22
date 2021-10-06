@@ -21,6 +21,14 @@ resource "aws_security_group" "sg_template" {
       protocol         = var.protocol
       cidr_blocks      = ["0.0.0.0/0"]
       }
+
+    ingress {
+      description      = "TLS from VPC"
+      from_port        = var.from_port3
+      to_port          = var.to_port3
+      protocol         = var.protocol
+      cidr_blocks      = ["0.0.0.0/0"]
+      }
   
 
   egress {

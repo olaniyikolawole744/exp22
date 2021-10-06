@@ -13,11 +13,11 @@ jinjafiles:
   - producer_message
   - consumer_message
 # brokernode: 54.83.139.74
-brokernode: tag_Name_kafka_broker_node
+brokernode: tag_Name_broker_kafka_server
 producer_data: "techbleat', value=b'This is simple stuff"
 projectfolder: /home/ec2-user/project/
-codefolder: /home/ec2-user/project/Pythoncode
+codefolder: /home/ec2-user/project/pythoncode
 codedestination:
-  - /home/ec2-user/project/Pythoncode/producer_message.py
-  - /home/ec2-user/project/Pythoncode/consumer_message.py
+  - /home/ec2-user/project/pythoncode/producer_message.py
+  - /home/ec2-user/project/pythoncode/consumer_message.py
 

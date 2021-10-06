@@ -12,7 +12,7 @@ variable "secret_key" {
 
 variable "region" {
   type      = string
-  default   = "us-west-2"
+  default   = "${env("REGION")}"
   sensitive = true
 }
 
@@ -25,7 +25,7 @@ source "amazon-ebs" "tool_server_ami" {
   ssh_username  = "ec2-user"
   region        = "${var.region}"
   ami_name      = "tool_server_ami"
-  source_ami    = "ami-0c2d06d50ce30b442"
+  source_ami    = "ami-087c17d1fe0178315"
   instance_type = "t2.micro"
 }
 
@@ -39,19 +39,11 @@ build {
   }
 
   provisioner "file" {
-    source      = "secret_key"
+    source      = "private_key"
     destination = "/tmp/"
   }
 
   provisioner "shell" {
-    script = "dependencies.sh"
-  }
-
-  provisioner "shell" {
-    script = "openJDK11.sh"
-  }
-
-  provisioner "shell" {
-    script = "tool_server_script.sh"
+    script = "testing1222.sh"
   }
 }

@@ -1,7 +1,7 @@
 ---
   - hosts:
       #- all
-      - tag_Environment_kafka
+      - tag_Environment_project
     become: yes
     tasks:
       - name: ansible create working directory
@@ -41,7 +41,7 @@
 
   - hosts:
     #  - broker
-      - tag_Name_kafka_broker_node
+      - tag_Name_broker_kafka_server
     become: yes
     tasks:
       - name: Write producer code to producer node

@@ -26,7 +26,7 @@ module "servers" {
   count = 3
   source = "../modules/ec2"
 
-  server_amis                        = var.ami_values[count.index]
+  server_amis                = var.ami_values[count.index]
   instance_type              = var.instance_type
   key_name                   = var.key_name
   user_data                  = var.user_data
@@ -37,6 +37,8 @@ module "servers" {
   to_port                    = var.to_port
   from_port2                 = var.from_port2[count.index]
   to_port2                   = var.to_port2[count.index]
+  from_port3                 = var.from_port2[count.index]
+  to_port3                   = var.to_port2[count.index]
   protocol                   = var.protocol
   public_subnet_cidr_block   = var.public_subnet_cidr_block[count.index]
   availability_zone_marker   = var.availability_zone_marker[count.index]

@@ -23,10 +23,20 @@ variable "environment" {}
 # SECURITY_GROUP VARIABLES
 variable "from_port" {}
 variable "to_port" {}
+
 variable "from_port2" {
     default = []
 }
+
 variable "to_port2" {
+    default = []
+}
+
+variable "from_port3" {
+    default = []
+}
+
+variable "to_port3" {
     default = []
 }
 
