@@ -34,16 +34,21 @@ build {
   sources = ["source.amazon-ebs.tool_server_ami"]
 
   provisioner "file" {
-    source      = "public_key"
+    source      = "tf-packer.pub"
     destination = "/tmp/"
   }
 
   provisioner "file" {
-    source      = "private_key"
+    source      = "tf-packer"
+    destination = "/tmp/"
+  }
+
+  provisioner "file" {
+    source      = "get-pip.py"
     destination = "/tmp/"
   }
 
   provisioner "shell" {
-    script = "testing1222.sh"
+    script = "ansible_server_script.sh"
   }
 }

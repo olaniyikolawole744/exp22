@@ -19,7 +19,7 @@ echo "ansible ALL=(ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/ansible
 sudo mkdir  /home/ansible/.ssh
 sudo chmod 700 /home/ansible/.ssh
 sudo touch  /home/ansible/.ssh/authorized_keys
-sudo cp /tmp/public_key /home/ansible/.ssh/authorized_keys
+sudo cp /tmp/tf-packer.pub /home/ansible/.ssh/authorized_keys
 sudo chmod 600 /home/ansible/.ssh/authorized_keys
 sudo chown -R ansible:ansible /home/ansible/.ssh
 sudo usermod --shell /bin/bash ansible

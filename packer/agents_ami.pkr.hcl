@@ -34,8 +34,12 @@ build {
   sources = ["source.amazon-ebs.agents_server_ami"]
 
   provisioner "file" {
-    source      = "public_key"
+    source      = "tf-packer.pub"
     destination = "/tmp/"
+  }
+
+  provisioner "shell" {
+    script = "agent_ec2_user_ssh_key.sh"
   }
 
   provisioner "shell" {
