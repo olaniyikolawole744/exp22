@@ -5,8 +5,8 @@ sudo groupadd -r sudo
 sudo useradd -m -s /bin/bash ansible
 sudo usermod -a -G sudo ansible
 sudo cp /etc/sudoers /etc/sudoers.orig
-echo "ansible ALL=(ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/ansible
-echo "ansible ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+#echo "ansible ALL=(ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/ansible
+#echo "ansible ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 echo "ansible ALL=(ALL) NOPASSWD:ALL" | sudo tee -a /etc/sudoers
 
 # Installing SSH key

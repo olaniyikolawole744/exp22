@@ -29,10 +29,12 @@ cd subnet_rt_assoc
 terraform init
 terraform apply --auto-approve
 
-
-# SSH INTO SERVER
-#ssh -i ~/Downloads/train-oregon-kp.pem ec2-user@54.71.65.204
-#pwd
-#exit
-
+# PLAY ANSIBLE PLAYBOOK 
+cd ansible-job
+ls
+sudo chmod 755 ansible-job/inventory/ec2.py
+sudo chmod 755 ansible-job/inventory/ec2.ini
+cd ../
+ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook playbook/playbookbroker.yml -i inventory/ec2.py
+           
 

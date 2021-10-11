@@ -1,0 +1,22 @@
+neededapps:
+  - java
+  - pip
+  - python
+  - git
+kafkafolder: https://ftp.wayne.edu/apache/kafka/3.0.0/kafka-3.0.0-src.tgz
+createfolder: 
+  - project/
+  - project/pythoncode/
+unzipkafka: project/kafka-3.0.0-src.tgz
+welcome_message: Broker
+jinjafiles:
+  - producer_message
+  - consumer_message
+# brokernode: 54.83.139.74
+brokernode: tag_Name_broker_kafka_server
+producer_data: "techbleat', value=b'This is simple stuff"
+projectfolder: project/
+codefolder: project/pythoncode
+codedestination:
+  - project/pythoncode/producer_message.py
+  - project/pythoncode/consumer_message.py

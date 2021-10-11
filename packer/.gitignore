@@ -1,5 +1,2 @@
 .terraform*
 terraform*
-public_key*
-private_key*
-tc-packer*

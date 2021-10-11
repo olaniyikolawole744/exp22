@@ -1,7 +1,0 @@
-neededapps: java
-kafkafolder: https://downloads.apache.org/kafka/2.8.0/kafka_2.13-2.8.0.tgz
-createfolder: /home/ansible/project/
-unzipkafka: /home/ansible/project/kafka_2.13-2.8.0.tgz
-welcome_message: zookeeper
-projectfolder: /home/ansible/project/
-
