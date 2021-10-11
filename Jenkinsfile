@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        tf-packer = credentials ('tf-packer')
+        tf-packer-key = credentials ('tf-packer-key')
         aws_credentials = credentials ('aws_credentials')
     }
 
