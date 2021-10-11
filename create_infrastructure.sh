@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # CREATE VPC
-cd 
 cd vpc
 ls
 terraform init
