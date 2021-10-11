@@ -12,7 +12,7 @@ variable "secret_key" {
 
 variable "region" {
   type      = string
-  default   = "${env("REGION")}"
+  default   = "us-east-1"
   sensitive = true
 }
 
