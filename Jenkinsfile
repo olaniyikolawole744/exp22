@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     environment {
-        
-        packer_secret_text = credentials() ('packer_secret_text')
+        tf-packer = credentials ('tf-packer')
+        aws_credentials = credentials ('aws_credentials')
     }
 
     stages {
@@ -17,9 +17,7 @@ pipeline {
             steps {
                 sh './create_infrastructure.sh'
            }
-
-        }
-        
+        }  
     }
 }
 
