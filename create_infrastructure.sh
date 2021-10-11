@@ -11,11 +11,11 @@ terraform apply --auto-approve
 cd ..
 cd packer
 ls
-packer fmt .
-packer init tool_server_ami.pkr.hcl
-packer init agents_ami.pkr.hcl
-packer build tool_server_ami.pkr.hcl
-packer build agents_ami.pkr.hcl
+/usr/local/bin/packer fmt .
+/usr/local/bin/packer init tool_server_ami.pkr.hcl
+/usr/local/bin/packer init agents_ami.pkr.hcl
+/usr/local/bin/packer build tool_server_ami.pkr.hcl
+/usr/local/bin/packer build agents_ami.pkr.hcl
 
 # CREATE SERVERS
 cd ..
