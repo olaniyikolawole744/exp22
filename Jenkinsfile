@@ -11,8 +11,8 @@ pipeline {
     stages {
         stage('EXPORT CREDENTIALS') {
             steps {
-                sh 'export ACCESS_KEY=$(ACCESS_KEY)'
-                sh 'export SECRET_KEY=$(SECRET_KEY)'  
+                sh 'export ACCESS_KEY="$(ACCESS_KEY)"'
+                sh 'export SECRET_KEY="$(SECRET_KEY)"'  
             }
         }
 
