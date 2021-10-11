@@ -1,6 +1,15 @@
 #!/bin/bash
 
+# CREATE VPC
+cd 
+cd vpc
+ls
+terraform init
+terraform apply --auto-approve
+#terraform destroy --auto-approve
+
 # CREATE TOOL SERVER AMI
+cd ..
 cd packer
 ls
 packer fmt .
@@ -8,14 +17,6 @@ packer init tool_server_ami.pkr.hcl
 packer init agents_ami.pkr.hcl
 packer build tool_server_ami.pkr.hcl
 packer build agents_ami.pkr.hcl
-
-# CREATE VPC
-cd ..
-cd vpc
-ls
-terraform init
-terraform apply --auto-approve
-#terraform destroy --auto-approve
 
 # CREATE SERVERS
 cd ..
