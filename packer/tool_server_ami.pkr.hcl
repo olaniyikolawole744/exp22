@@ -22,13 +22,12 @@ source "amazon-ebs" "tool_server_ami" {
   }
   access_key    = "${var.access_key}"
   secret_key    = "${var.secret_key}"
-  ssh_username  = "ec2-user"
   region        = "${var.region}"
+  ssh_username  = "ec2-user"
   ami_name      = "tool_server_ami"
   source_ami    = "ami-087c17d1fe0178315"
   instance_type = "t2.micro"
 }
-
 
 build {
   sources = ["source.amazon-ebs.tool_server_ami"]

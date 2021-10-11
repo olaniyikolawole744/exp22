@@ -12,8 +12,10 @@ cd ..
 cd packer
 ls
 /usr/bin/packer fmt .
+
 /usr/bin/packer init tool_server_ami.pkr.hcl
 /usr/bin/packer build tool_server_ami.pkr.hcl
+
 /usr/bin/packer init agents_ami.pkr.hcl
 /usr/bin/packer build agents_ami.pkr.hcl
 

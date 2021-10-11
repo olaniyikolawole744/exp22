@@ -29,8 +29,6 @@ source "amazon-ebs" "agents_server_ami" {
   instance_type = "t2.micro"
 }
 
-
-
 build {
   sources = ["source.amazon-ebs.agents_server_ami"]
 
