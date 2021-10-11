@@ -9,13 +9,6 @@ pipeline {
     }
 
     stages {
-        stage('EXPORT CREDENTIALS') {
-            steps {
-                sh "export ACCESS_KEY=${ACCESS_KEY}"
-                sh "export SECRET_KEY=${SECRET_KEY}"
-            }
-        }
-
         stage('CONVERT INFRASTRUCTURE FILE TO EXECUTABLE') {
             steps {
                 sh 'ls'
