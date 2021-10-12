@@ -28,9 +28,7 @@ pipeline {
         stage('PLAY ANSIBLE BOOK') {
             steps {
                 sh 'sh play_ansible_book.sh'
-                sh "echo '${ANSIBLE_VAULT_PASSWORD_FILE}' > secret.txt"
-                sh 'echo secret.txt'
-                sh 'ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook ansible-job/playbook/playbookbroker.yml -i ansible-job/inventory/hosts/ec2.py --vault-password-file secret.txt'
+                sh 'ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook ansible-job/playbook/playbookbroker.yml -i ansible-job/inventory/hosts/ec2.py'
           }
         }  
     }
