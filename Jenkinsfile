@@ -1,5 +1,3 @@
-def secret.txt
-
 pipeline {
     agent any
 
@@ -11,8 +9,6 @@ pipeline {
         ANSIBLE_HOSTS="inventory/ec2.py"
         EC2_INI_PATH="inventory/ec2.ini"
     }
-
-
 
     stages {
         stage('CONVERT INFRASTRUCTURE FILE TO EXECUTABLE') {
@@ -35,8 +31,7 @@ pipeline {
                 sh "echo '${ANSIBLE_VAULT_PASSWORD_FILE}' > secret.txt"
                 sh 'echo secret.txt'
                 sh 'ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook playbook/playbookbroker.yml -i inventory/hosts/ec2.py --vault-password-file secret.txt'
-
-           }
+          }
         }  
     }
 }
