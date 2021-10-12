@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        ANSIBLE_VAULT_PASSWORD_FILE = credentials ('tf-packer-key')
+        ANSIBLE_VAULT_PASSWORD_FILE = credentials ('packer_vault')
         aws_credentials = credentials ('aws_credentials')
         ACCESS_KEY = credentials ('ACCESS_KEY')
         SECRET_KEY = credentials ('SECRET_KEY')
