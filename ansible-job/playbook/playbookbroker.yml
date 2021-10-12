@@ -22,7 +22,7 @@
           url: "{{ kafkafolder }}"
           dest: "{{ projectfolder }}"
           mode: '0440'
-          owner: ec2-user
+          owner: ansible
 
       - name: untar kafka file 1
         ansible.builtin.shell:  tar -xf kafka-3.0.0-src.tgz
@@ -33,8 +33,8 @@
         ansible.builtin.template:
           src: welcome_message.j2
           dest: /etc/profile.d/welcome_message.sh
-          owner: root
-          group: root
+          owner: ansible
+          group: ansible
           mode: '0644'
 
   
@@ -49,8 +49,8 @@
           src: producer_message.j2
     #     dest: /home/ec2-user/project/pythoncode/producer_message.py
           dest: project/pythoncode/producer_message.py
-          owner: ec2-user
-          group: ec2-user
+          owner: ansible
+          group: ansible
           mode: '0644'
 
       - name: Write consumer code to consumer node
@@ -58,8 +58,8 @@
           src: consumer_message.j2
         # dest: /home/ec2-user/project/pythoncode/consumer_message.py
           dest: project/pythoncode/consumer_message.py
-          owner: ec2-user
-          group: ec2-user
+          owner: ansible
+          group: ansible
           mode: '0644'
 
       - name: Install kafka python package on kafka broker node
