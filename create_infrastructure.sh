@@ -36,6 +36,7 @@ terraform apply --auto-approve
 cd ..
 cd ansible-job
 ls
+
 export ANSIBLE_HOSTS=inventory/ec2.py
 export EC2_INI_PATH=inventory/ec2.ini
 ls inventory/
