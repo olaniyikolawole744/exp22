@@ -4,7 +4,7 @@ pipeline {
     environment {
         ANSIBLE_VAULT_PASSWORD_FILE = credentials ('packer_vault')
         aws_credentials = credentials ('aws_credentials')
-        private_key_file = credentials ('private_key_file')
+        
         ACCESS_KEY = credentials ('ACCESS_KEY')
         SECRET_KEY = credentials ('SECRET_KEY')
         ANSIBLE_HOSTS="inventory/ec2.py"
