@@ -28,6 +28,7 @@ pipeline {
         stage('PLAY ANSIBLE BOOK') {
             steps {
                 sh 'sh play_ansible_book.sh'
+                sh 'sudo su - ansible'
                 sh 'ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook ansible-job/playbook/playbookbroker.yml -i ansible-job/inventory/hosts/ec2.py'
           }
         }  
