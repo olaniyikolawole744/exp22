@@ -15,12 +15,19 @@ pipeline {
             steps {
                 sh 'ls'
                 sh 'chmod -x create_infrastructure.sh'  
+                sh 'chmod -x play_ansible_book.sh'
             }
         }
 
         stage('RUN INFRASTRUCTURE BASH SCRIPT') {
             steps {
                 sh 'sh create_infrastructure.sh'
+           }
+        } 
+
+        stage('PLAY ANSIBLE BOOK') {
+            steps {
+                sh 'sh play_ansible_book.sh'
            }
         }  
     }
