@@ -1,25 +1,35 @@
 #!/bin/bash
 
 #Creating Ansible User
-sudo groupadd -r sudo
-sudo useradd -m -s /bin/bash jenkins
-sudo usermod -a -G sudo jenkins
-sudo cp /etc/sudoers /etc/sudoers.orig
+sudo useradd jenkins
+sudo mkdir /home/jenkins/.ssh
+sudo chmod 700 /home/jenkins/.ssh
+sudo touch /home/jenkins/id_rsa 
+sudo touch /home/jenkins/id_rsa.pub
+sudo touch /home/jenkins/authorized_keys
+sudo chmod 600 /home/jenkins/authorized_keys
+sudo chmod 600 /home/jenkins/id_rsa
 echo "ansible ALL=(ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/jenkins
 
+#sudo groupadd -r sudo
+#sudo useradd -m -s /bin/bash jenkins
+#sudo usermod -a -G sudo jenkins
+#sudo cp /etc/sudoers /etc/sudoers.orig
+#echo "ansible ALL=(ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/jenkins
+
 # Installing SSH key
-sudo mkdir  /home/jenkins/.ssh
-sudo touch  /home/jenkins/.ssh/authorized_keys
-sudo touch  /home/jenkins/.ssh/id_rsa
-sudo touch  /home/jenkins/.ssh/id_rsa.pub
-sudo chmod 700 /home/jenkins/.ssh
+#sudo mkdir  /home/jenkins/.ssh
+#sudo touch  /home/jenkins/.ssh/authorized_keys
+#sudo touch  /home/jenkins/.ssh/id_rsa
+#sudo touch  /home/jenkins/.ssh/id_rsa.pub
+#sudo chmod 700 /home/jenkins/.ssh
 sudo cp /tmp/private_key /home/jenkins/.ssh/id_rsa
-sudo chmod 600 /home/jenkins/.ssh/id_rsa
+#sudo chmod 600 /home/jenkins/.ssh/id_rsa
 sudo cp /tmp/public_key /home/jenkins/.ssh/id_rsa.pub
 sudo cp /tmp/public_key /home/jenkins/.ssh/authorized_keys
-sudo chmod 600 /home/jenkins/.ssh/authorized_keys
+#sudo chmod 600 /home/jenkins/.ssh/authorized_keys
 sudo chown -R jenkins:jenkins /home/jenkins/.ssh
-sudo usermod --shell /bin/bash jenkins
+#sudo usermod --shell /bin/bash jenkins
 
 #Installing Dependencies
 sudo yum update -y
