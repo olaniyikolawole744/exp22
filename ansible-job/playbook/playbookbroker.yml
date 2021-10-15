@@ -107,6 +107,13 @@
          #   path: /root/project/code
           #  source: build
         #state: present
+      
+      - name: Cloning Repo
+        ansible.builtin.git:
+          repo: https://github.com/olaniyikolawole744/devops-penultimante-project.git
+          dest: /root/project
+          single_branch: yes
+          version: master
 
       - name: Build image and with buildargs
         docker_image:
