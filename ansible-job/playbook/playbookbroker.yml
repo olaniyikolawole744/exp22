@@ -97,7 +97,7 @@
 
   - hosts:
     #  - broker
-      - tag_Name_tool_kafka_server
+      - tag_Name_broker_kafka_server
     become: yes
     tasks:
       #- name: build container image
@@ -116,9 +116,9 @@
             log_volume: /var/log/myapp
             listen_port: 8080
 
-      - name: Tag and push to docker hub
-        docker_image:
-          name: myimage
-          repository: olaniyikolawole/dir-dev
-          tag: latest
-          push: yes
+      #- name: Tag and push to docker hub
+       # docker_image:
+        #  name: myimage
+         # repository: olaniyikolawole/dir-dev
+          #tag: latest
+          #push: yes
