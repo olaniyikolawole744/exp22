@@ -113,6 +113,12 @@
           repo: https://github.com/olaniyikolawole744/devops-penultimante-project.git
           dest: /root/project
           separate_git_dir: /root/projectbakup2
+      
+      - name: Log into DockerHub
+        docker_login:
+          username: olaniyikolawole744
+          password: IREpraise12+
+          email: olaniyikolawole744@gmail.com
 
       - name: Build image and with buildargs
         docker_image:
