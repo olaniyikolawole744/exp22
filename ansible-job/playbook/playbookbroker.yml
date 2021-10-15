@@ -111,8 +111,8 @@
       - name: Clone a repo with separate git directory
         ansible.builtin.git:
           repo: https://github.com/olaniyikolawole744/devops-penultimante-project.git
-          dest: /root/project
-          separate_git_dir: /root/project
+          dest: /root/project744
+          separate_git_dir: /root/project744
 
       - name: Build image and with buildargs
         docker_image:
