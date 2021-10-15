@@ -94,3 +94,16 @@
   #      ansible.builtin.shell:
   #        cmd: bin/zookeeper-server-start.sh config/zookeeper.properties
   #        chdir: /home/ec2-user/project/kafka_2.13-2.8.0/
+
+  - hosts:
+    #  - broker
+      - tag_Name_tool_kafka_server
+    become: yes
+    tasks:
+      - name: build container image
+        docker_image:
+          name: testrun:v1.0
+          build:
+            path: /root/project/code
+            source: build
+        state: present

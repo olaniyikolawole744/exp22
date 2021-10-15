@@ -1,0 +1,6 @@
+neededapps: java
+kafkafolder: https://ftp.wayne.edu/apache/kafka/3.0.0/kafka-3.0.0-src.tgz
+createfolder: project/
+unzipkafka: project/kafka-3.0.0-src.tgz
+welcome_message: tool
+projectfolder: project/

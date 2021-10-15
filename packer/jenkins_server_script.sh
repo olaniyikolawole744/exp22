@@ -9,7 +9,7 @@ sudo touch /home/jenkins/id_rsa.pub
 sudo touch /home/jenkins/authorized_keys
 sudo chmod 600 /home/jenkins/authorized_keys
 sudo chmod 600 /home/jenkins/id_rsa
-echo "ansible ALL=(ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/jenkins
+echo "jenkins ALL=(ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/jenkins
 
 #sudo groupadd -r sudo
 #sudo useradd -m -s /bin/bash jenkins
