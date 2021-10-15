@@ -97,7 +97,7 @@
 
   - hosts:
     #  - broker
-      - tag_Name_broker_kafka_server
+      - tag_Name_zookeeper_kafka_server
     become: yes
     tasks:
       #- name: build container image
