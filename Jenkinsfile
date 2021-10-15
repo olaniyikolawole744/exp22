@@ -3,11 +3,11 @@ pipeline {
 
     environment {
         ANSIBLE_VAULT_PASSWORD_FILE = credentials ('ansible-vault-password-file')
-        aws_credentials = credentials ('aws_credentials')
         ACCESS_KEY = credentials ('ACCESS_KEY')
         SECRET_KEY = credentials ('SECRET_KEY')
         ANSIBLE_HOSTS="inventory/ec2.py"
         EC2_INI_PATH="inventory/ec2.ini"
+        aws_credentials = credentials ('aws_credentials')
     }
 
     stages {
@@ -33,4 +33,3 @@ pipeline {
         }  
     }
 }
-
