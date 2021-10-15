@@ -100,10 +100,18 @@
       - tag_Name_tool_kafka_server
     become: yes
     tasks:
-      - name: build container image
+      #- name: build container image
+      #  docker_image:
+       #   name: testrun:v1.0
+        #  build:
+         #   path: /root/project/code
+          #  source: build
+        #state: present
+
+      - name: Build image and with buildargs
         docker_image:
-          name: testrun:v1.0
-          build:
-            path: /root/project/code
-            source: build
-        state: present
+          path: /root/project/code
+          name: myimage
+          buildargs:
+            log_volume: /var/log/myapp
+            listen_port: 8080
