@@ -1,3 +1,4 @@
 .terraform*
 terraform*
 private_key_file
+secret.txt
