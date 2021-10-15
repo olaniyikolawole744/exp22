@@ -125,9 +125,9 @@
 
       - name: Log into DockerHub
         docker_login:
-          username: olaniyikolawole744
-          password: IREpraise12+
-          email: olaniyikolawole744@gmail.com
+          username: 
+          password: 
+          email: 
 
       - name: Tag and push to docker hub
         docker_image:
