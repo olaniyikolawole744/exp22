@@ -8,7 +8,7 @@ pipeline {
         ANSIBLE_HOSTS="inventory/ec2.py"
         EC2_INI_PATH="inventory/ec2.ini"
         docker_credentials = credentials ('docker_credentials')
-        dockerpass = credentials('docker-password')
+        DOCKERKEY = credentials('dockerkey')
     }
 
     stages {
@@ -29,8 +29,7 @@ pipeline {
         stage('PLAY ANSIBLE BOOK') {
             steps {
                 sh 'sh play_ansible_book.sh'
-                sh 'cat ${dockerpass} | docker login --username olaniyikolawole744 --password ${dockerpass}'
-                
+                sh 'docker login -u olaniyikolawole744 -p ${DOCKERKEY}'                
                 sh 'ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook ansible-job/playbook/playbookbroker.yml -i ansible-job/inventory/hosts/ec2.py -vvvvv'
           }
         }  
