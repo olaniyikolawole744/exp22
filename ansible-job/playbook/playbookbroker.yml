@@ -137,12 +137,12 @@
           password: "{{ dockerhubpass }}"
           reauthorize: yes
 
-      - name: Tag and push to docker hub
-        docker_image:
-          name: myimage
-          repository: olaniyikolawole/dir-dev
-          tag: latest
-          push: yes
-          client_key: 
+      #- name: Tag and push to docker hub
+        #docker_image:
+          #name: myimage
+          #repository: olaniyikolawole/dir-dev
+          #tag: latest
+          #push: yes
+          #client_key: 
 
       
