@@ -115,13 +115,13 @@
           separate_git_dir: /root/projectbakup2
       
 
-      - name: Build image and with buildargs
-        docker_image:
-          path: /root/project/code
-          name: myimage
-          buildargs:
-            log_volume: /var/log/myapp
-            listen_port: 8080
+     # - name: Build image and with buildargs
+      #  docker_image:
+       #   path: /root/project/code
+        #  name: myimage
+         # buildargs:
+          #  log_volume: /var/log/myapp
+           # listen_port: 8080
 
       
       - name: Log into DockerHub
@@ -131,7 +131,7 @@
           password: "{{ dockerhubpass }}"
           reauthorize: yes
 
-      - name: build
+      - name: Build and Push Image to DockerHub
         docker_image:
           build:
             path: /root/project/code
