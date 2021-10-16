@@ -140,6 +140,7 @@
             #cache_from:
             #- alpine:3.9
           source: build
+          push: yes
           name: registry.hub.docker.com/olaniyikolawole744/myimage2
           tag: v1.1
 
