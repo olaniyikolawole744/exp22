@@ -8,7 +8,7 @@ pipeline {
         ANSIBLE_HOSTS="inventory/ec2.py"
         EC2_INI_PATH="inventory/ec2.ini"
         docker_credentials = credentials ('docker_credentials')
-        dockerpass = credentials('dockerhub-password')
+        dockerpass = credentials('docker-password')
     }
 
     stages {
