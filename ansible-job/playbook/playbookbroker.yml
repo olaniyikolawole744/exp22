@@ -132,7 +132,7 @@
 
       - name: Log into DockerHub
         docker_login:
-          registry_url: https://hub.docker.com/
+          registry_url: https://hub.docker.com/repository/docker/
           username: olaniyikolawole744
           password: "{{ dockerhubpass }}"
           reauthorize: yes
