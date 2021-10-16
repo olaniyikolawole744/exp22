@@ -131,12 +131,24 @@
           password: "{{ dockerhubpass }}"
           reauthorize: yes
 
-      - name: Tag and push to local registry
+      - name: build
         docker_image:
-          name: myimage
-          repository: olaniyikolawole/app
-          tag: 7
-          push: yes
+          build:
+            path: /root/project/code
+            dockerfile: Dockerfile
+            pull: yes
+            cache_from:
+            - alpine:3.9
+          source: build
+          name: https://registry.hub.docker.com/olaniyikolawole744/myimage2
+          tag: v1.1
+
+      #- name: Tag and push to local registry
+       # docker_image:
+        #  name: myimage
+         # repository: olaniyikolawole/app
+          #tag: 7
+          #push: yes
 
       #- name: Tag and push to docker hub
         #community.docker.docker_image:
