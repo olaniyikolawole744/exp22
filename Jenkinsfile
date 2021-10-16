@@ -30,8 +30,7 @@ pipeline {
             steps {
                 sh 'sh play_ansible_book.sh'
                 sh 'docker login -u olaniyikolawole744 -p ${DOCKERKEY}'                
-                sh 'ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook ansible-job/playbook/playbookbroker.yml -i ansible-job/inventory/hosts/ec2.py -vvvvv'
-          }
+                }
         }  
     }
 }
