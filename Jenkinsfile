@@ -29,7 +29,7 @@ pipeline {
         stage('PLAY ANSIBLE BOOK') {
             steps {
                 sh 'sh play_ansible_book.sh'
-                sh 'cat ${dockerpass} | docker login --username olaniyikolawole744 --password-stdin'
+                sh 'cat ${dockerpass} | docker login --username olaniyikolawole744 --password ${dockerpass}'
                 
                 sh 'ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook ansible-job/playbook/playbookbroker.yml -i ansible-job/inventory/hosts/ec2.py -vvvvv'
           }
