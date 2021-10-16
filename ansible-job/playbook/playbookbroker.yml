@@ -124,14 +124,24 @@
             listen_port: 8080
 
       - name: Tag and push to docker hub
+        community.docker.docker_image:
+          name: myimage
+          repository: olaniyikolawole/myimage:latest
+          push: yes
+          source: local
+
+      - name: Tag and push to docker hub
         docker_image:
           name: myimage
           repository: olaniyikolawole/dir-dev
           tag: latest
           push: yes
+          client_key: 
 
       - name: Log into DockerHub
         docker_login:
           username: olaniyikolawole744
           password: IREpraise12+
           email: olaniyikolawole744@gmail.com
+
+      
