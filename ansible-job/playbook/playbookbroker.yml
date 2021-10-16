@@ -131,12 +131,19 @@
           password: "{{ dockerhubpass }}"
           reauthorize: yes
 
-      - name: Tag and push to docker hub
-        community.docker.docker_image:
+      - name: Tag and push to local registry
+        docker_image:
           name: myimage
-          repository: olaniyikolawole/myimage:latest
+          repository: olaniyikolawole/app
+          tag: 7
           push: yes
-          source: local
+
+      #- name: Tag and push to docker hub
+        #community.docker.docker_image:
+          #name: myimage
+          #repository: olaniyikolawole/myimage:latest
+          #push: yes
+          #source: local
 
 
 
