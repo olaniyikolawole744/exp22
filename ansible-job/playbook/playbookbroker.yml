@@ -137,8 +137,8 @@
             path: /root/project/code
             dockerfile: Dockerfile
             pull: yes
-            cache_from:
-            - alpine:3.9
+            #cache_from:
+            #- alpine:3.9
           source: build
           name: https://registry.hub.docker.com/olaniyikolawole744/myimage2
           tag: v1.1
